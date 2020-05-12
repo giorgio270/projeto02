@@ -15,8 +15,8 @@ public class Users {
     private String cpf;
     private String rg;
     private String email;
-    private String telefone;
-    private String endereço;
+    private String phone;
+    private String address;
     
     public void setAttributes(String name, String cpf, String rg, String phone, String address, String email) {
         this.setName(name);
