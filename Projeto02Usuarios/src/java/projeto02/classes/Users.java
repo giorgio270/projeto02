@@ -11,15 +11,21 @@ package projeto02.classes;
  */
 public class Users {
     
-    private String name, email, password, cpf, rg, phone, address;
+    private String name;
+    private String cpf;
+    private String rg;
+    private String email;
+    private String telefone;
+    private String endereço;
     
     public void setAttributes(String name, String cpf, String rg, String phone, String address, String email, String password) {
         this.setName(name);
         this.setCpf(cpf);
         this.setRg(rg);
+        this.setEmail(email);
         this.setPhone(phone);
         this.setAddress(address);
-        this.setEmail(email);
+        
         this.setPassword(password);
         
     }
@@ -38,9 +44,7 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
+    }    
         return password;
     }
 
