@@ -18,16 +18,14 @@ public class Users {
     private String telefone;
     private String endereço;
     
-    public void setAttributes(String name, String cpf, String rg, String phone, String address, String email, String password) {
+    public void setAttributes(String name, String cpf, String rg, String phone, String address, String email) {
         this.setName(name);
         this.setCpf(cpf);
         this.setRg(rg);
         this.setEmail(email);
         this.setPhone(phone);
         this.setAddress(address);
-        
-        this.setPassword(password);
-        
+          
     }
 
     public String getName() {
@@ -45,13 +43,7 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }    
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+       
     public String getCpf() {
         return cpf;
     }
