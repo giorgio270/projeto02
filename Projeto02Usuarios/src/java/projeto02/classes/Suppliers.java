@@ -13,7 +13,7 @@ public class Suppliers {
     
     private String name, commercialName, cnpj, email, phone, address;
     
-    public void setAttributes (String name, String commercialName, String cnpj, String phone, String address, String email, String password){
+    public void setAttributes (String name, String commercialName, String cnpj, String phone, String address, String email){
         
         this.setName(name);
         this.setCommercialName(commercialName);

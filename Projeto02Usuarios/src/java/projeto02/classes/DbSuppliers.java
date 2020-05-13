@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projeto02;
+package projeto02.classes;
 import java.util.ArrayList;
+import projeto02.classes.Suppliers;
 /**
  *
  * @author Vinicius
