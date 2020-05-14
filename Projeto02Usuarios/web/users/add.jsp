@@ -21,12 +21,12 @@
       
         if(name.isEmpty())
             erro = "Nome não pode ser deixado em branco";
-        else if(email.isEmpty())
-            erro = "Email não pode ser deixado em branco";
         else if(cpf.isEmpty())
             erro = "CPF não pode ser deixado em branco";
         else if(rg.isEmpty())
             erro = "RG não pode ser deixado em branco";
+        else if(email.isEmpty())
+            erro = "Email não pode ser deixado em branco";
         else if(phone.isEmpty())
             erro = "Telefone não pode ser deixado em branco";
         else if(adress.isEmpty())
@@ -34,7 +34,7 @@
         else{
             erro = null;
             User user = new User();
-            user.setAttributes(name, cpf, rg, phone, email, adress);
+            user.setAttributes(name, cpf, rg, email, phone, adress);
             DbUser.getUsers().add(user);
             response.sendRedirect("list.jsp");
 
@@ -54,11 +54,12 @@
         
         <form method="POST">
             Nome:<br> <input type="text" name="name"><br>
-            Telefone:<br> <input type="text" name="phone"><br>
-            E-mail:<br> <input type="email" name="email"><br>
-            Endereço:<br> <input type="text" name="adress"><br>
-            CPF:<br> <input type="text" name="cpf" title="Exemplo de CPF: 123.123.123-12" pattern="([0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2})"><br>        
+            CPF:<br> <input type="text" name="cpf" title="Exemplo de CPF: 123.123.123-12" pattern="([0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2})"><br>
             RG:<br> <input type="text" name="rg" title="Exemplo de RG: 12.123.123-1" pattern="([0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][0-9]{1})"><br>
+            E-mail:<br> <input type="email" name="email"><br>
+            Telefone:<br> <input type="text" name="phone"><br>
+            Endereço:<br> <input type="text" name="adress"><br>
+                       
 
             <input type="submit" name="add" value="Cadastrar">
         </form>

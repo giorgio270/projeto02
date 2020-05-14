@@ -14,19 +14,19 @@
         String name, commercialName, email, cnpj, phone, adress;
         name = request.getParameter("name");
         commercialName = request.getParameter("commercialName");
-        email = request.getParameter("email");
         cnpj = request.getParameter("cnpj");
+        email = request.getParameter("email");
         phone = request.getParameter("phone");
         adress = request.getParameter("adress");
     
         if(name.isEmpty())
             erro = "Nome não pode ser deixado em branco";
-        else if(email.isEmpty())
-            erro = "Email não pode ser deixado em branco";
-        else if(cnpj.isEmpty())
-            erro = "CNPJ não pode ser deixado em branco";
         else if(commercialName.isEmpty())
             erro = "Nome comercial não pode ser deixado em branco";
+        else if(cnpj.isEmpty())
+            erro = "CNPJ não pode ser deixado em branco";
+        else if(email.isEmpty())
+            erro = "Email não pode ser deixado em branco";
         else if(phone.isEmpty())
             erro = "Telefone não pode ser deixado em branco";
         else if(adress.isEmpty())
@@ -34,7 +34,7 @@
         else{
             erro = null;
             Supplier supplier = new Supplier();
-            supplier.setAttributes(name, commercialName, cnpj, phone, adress, email);
+            supplier.setAttributes(name, commercialName, cnpj, email, phone, adress);
             DbSupplier.getSuppliers().add(supplier);
             response.sendRedirect("list.jsp");
         }
@@ -54,11 +54,12 @@
         
         <form method="POST">
             Nome:<br> <input type="text" name="name"><br>
-            Telefone:<br> <input type="text" name="phone"><br>
-            E-mail:<br> <input type="email" name="email"><br>
-            Endereço:<br> <input type="text" name="adress"><br>
-            CNPJ:<br> <input type="text" name="cnpj" title="Exemplo de CNPJ: 12.123.123/1234-12" pattern="([0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[-][0-9]{2})"><br>        
             Nome Comercial:<br> <input type="text" name="commercialName"><br>
+            CNPJ:<br> <input type="text" name="cnpj" title="Exemplo de CNPJ: 12.123.123/1234-12" pattern="([0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[-][0-9]{2})"><br>        
+            E-mail:<br> <input type="email" name="email"><br>
+            Telefone:<br> <input type="text" name="phone"><br>
+            Endereço:<br> <input type="text" name="adress"><br>
+            
     
             <input type="submit" name="add" value="Cadastrar">
         </form>
