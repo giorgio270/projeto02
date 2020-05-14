@@ -18,8 +18,7 @@ public class User {
     private String phone;
     private String address;
     
-    public void setAttributes(String name, String cpf, String rg, 
-                                String email,String phone, String address ) {
+    public void setAttributes(String name, String cpf, String rg, String email,String phone, String address ) {
         this.setName(name);
         this.setCpf(cpf);
         this.setRg(rg);

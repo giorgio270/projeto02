@@ -28,7 +28,7 @@
             </tr>
             
             <%for(Supplier supplier: DbSupplier.getSuppliers()){%>
-            
+            <tr>
                 <td><%= supplier.getName() %></td>
                 <td><%= supplier.getCommercialName()%></td>
                 <td><%= supplier.getCnpj()%></td>
@@ -40,7 +40,7 @@
                     <a href="set.jsp?index=<%=index%>">Alterar</a>
                     <a href="remove.jsp?index=<%=index%>">Excluir</a>
                 </td>
-            
+            </tr>
             
             
             <%}%>

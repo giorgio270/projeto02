@@ -11,21 +11,21 @@
 <%
     String erro = null;
     if(request.getParameter("add") != null){
-        String name, comercialName, email, cnpj, phone, adress;
+        String name, commercialName, email, cnpj, phone, adress;
         name = request.getParameter("name");
-        comercialName = request.getParameter("comercialName");
+        commercialName = request.getParameter("commercialName");
         email = request.getParameter("email");
         cnpj = request.getParameter("cnpj");
         phone = request.getParameter("phone");
         adress = request.getParameter("adress");
-      
+    
         if(name.isEmpty())
             erro = "Nome não pode ser deixado em branco";
         else if(email.isEmpty())
             erro = "Email não pode ser deixado em branco";
         else if(cnpj.isEmpty())
             erro = "CNPJ não pode ser deixado em branco";
-        else if(comercialName.isEmpty())
+        else if(commercialName.isEmpty())
             erro = "Nome comercial não pode ser deixado em branco";
         else if(phone.isEmpty())
             erro = "Telefone não pode ser deixado em branco";
@@ -34,10 +34,11 @@
         else{
             erro = null;
             Supplier supplier = new Supplier();
-            supplier.setAttributes(name, commercialName, cnpj, phone, address, email);
+            supplier.setAttributes(name, commercialName, cnpj, phone, adress, email);
             DbSupplier.getSuppliers().add(supplier);
-            // response.sendRedirect("listUsers.jsp"); //<-- Tirar o comentário quando o list for feito
+            response.sendRedirect("list.jsp");
         }
+    }
 %>
 <html>
     <head>
@@ -45,7 +46,7 @@
         <title>Cadastrar Novo Usuário</title>
     </head>
     <body>
-        <!adicionar header aqui>
+        <%@include file="../WEB-INF/jspf/header.jspf"%>
         <h2>Cadastrar Novo Fornecedor</h2><br>
         <%if(erro != null){%>
         <div style="color: red;"><%= erro%></div><br>
@@ -56,7 +57,7 @@
             Telefone:<br> <input type="text" name="phone"><br>
             E-mail:<br> <input type="email" name="email"><br>
             Endereço:<br> <input type="text" name="adress"><br>
-            CPF:<br> <input type="text" name="cnpj" title="Exemplo de CNPJ: 12.123.123/1234-12" pattern="([0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[-][0-9]{2})"><br>        
+            CNPJ:<br> <input type="text" name="cnpj" title="Exemplo de CNPJ: 12.123.123/1234-12" pattern="([0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[-][0-9]{2})"><br>        
             Nome Comercial:<br> <input type="text" name="commercialName"><br>
     
             <input type="submit" name="add" value="Cadastrar">

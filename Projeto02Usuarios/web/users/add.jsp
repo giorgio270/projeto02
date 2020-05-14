@@ -6,15 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="projeto02.classes.User"%>
+<%@page import="projeto02.classes.DbUser"%>
 <!DOCTYPE html>
 <%
     String erro = null;
     if(request.getParameter("add") != null){
-        String name, email, pass1, pass2, cpf, rg, phone, adress;
+        String name, email, cpf, rg, phone, adress;
         name = request.getParameter("name");
         email = request.getParameter("email");
-        pass1 = request.getParameter("pass1");
-        pass2 = request.getParameter("pass2");
         cpf = request.getParameter("cpf");
         rg = request.getParameter("rg");
         phone = request.getParameter("phone");
@@ -24,8 +23,6 @@
             erro = "Nome não pode ser deixado em branco";
         else if(email.isEmpty())
             erro = "Email não pode ser deixado em branco";
-        else if(pass1.isEmpty())
-            erro = "Senha não pode ser deixada em branco";
         else if(cpf.isEmpty())
             erro = "CPF não pode ser deixado em branco";
         else if(rg.isEmpty())
@@ -34,18 +31,13 @@
             erro = "Telefone não pode ser deixado em branco";
         else if(adress.isEmpty())
             erro = "Endereço não pode ser deixado em branco";
-        
-        if(pass1.equals(pass2) == false)
-            erro = "As senhas não coincidem";
-        else if(pass1.equals(pass2)){
+        else{
             erro = null;
             Users user = new Users();
-            user.setAttributes(name, cpf, rg, phone, adress, email, pass1);
-            // ADICIONAR USUARIO NO DB QUANDO FOR FEITO DEPOIS
-            // response.sendRedirect("listUsers.jsp"); //<-- Tirar o comentário quando o list for feito
-        } else
-            erro = "ERRO DESCONHECIDO";
-        
+            user.setAttributes(name, cpf, rg, phone, email, adress);
+            DbUser.getUsers().add(user);
+            response.sendRedirect("list.jsp");
+
     }
 %>
 <html>
@@ -54,7 +46,7 @@
         <title>Cadastrar Novo Usuário</title>
     </head>
     <body>
-        <!adicionar header aqui>
+        <%@include file="../WEB-INF/jspf/header.jspf"%>
         <h2>Cadastrar Novo Usuário</h2><br>
         <%if(erro != null){%>
         <div style="color: red;"><%= erro%></div><br>
@@ -68,12 +60,6 @@
             CPF:<br> <input type="text" name="cpf" title="Exemplo de CPF: 123.123.123-12" pattern="([0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2})"><br>        
             RG:<br> <input type="text" name="rg" title="Exemplo de RG: 12.123.123-1" pattern="([0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][0-9]{1})"><br>
 
-            <br><fieldset>
-                <legend>Senha</legend>
-                Senha:<br> <input type="password" name="pass1"><br>
-                Confirme sua senha:<br> <input type="password" name="pass2"><br>
-            </fieldset>
-            
             <input type="submit" name="add" value="Cadastrar">
         </form>
     </body>
