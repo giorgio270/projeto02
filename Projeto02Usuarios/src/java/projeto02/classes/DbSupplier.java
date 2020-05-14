@@ -5,17 +5,18 @@
  */
 package projeto02.classes;
 import java.util.ArrayList;
-import projeto02.classes.Suppliers;
+
 /**
  *
  * @author Vinicius
  */
-public class DbSuppliers {
-    private static ArrayList<Suppliers> supplier;
-    public static ArrayList<Suppliers> getSuppliers() {
+public class DbSupplier {
+    private static ArrayList<Supplier> supplier;
+    public static ArrayList<Supplier> getSuppliers() {
         if (supplier == null) {
-            Suppliers company = new Suppliers();
-            company.setAttributes("Company", "Commercial", "00000000000000", "00000000000", "Address, number 0000", "company@business.com");
+            supplier = new ArrayList<>();
+            Supplier company = new Supplier();
+            company.setAttributes("Company", "Commercial", "0000000000/0000", "company@business.com", "11-2222-3333", "Av Paulista, n10, Sp - Sp");
             supplier.add(company);
         }
         return supplier;
