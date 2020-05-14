@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="projeto02.classes.DbSuppliers"%>
-<%@page import="projeto02.classes.Suppliers"%>
+<%@page import="projeto02.classes.DbSupplier"%>
+<%@page import="projeto02.classes.Supplier"%>
 <!DOCTYPE html>
 <%
     String erro = null;
@@ -33,9 +33,9 @@
             erro = "Endereço não pode ser deixado em branco";
         else{
             erro = null;
-            Suppliers supplier = new Suppliers();
+            Supplier supplier = new Supplier();
             supplier.setAttributes(name, commercialName, cnpj, phone, address, email);
-            DbSuppliers.getSuppliers().add(supplier);
+            DbSupplier.getSuppliers().add(supplier);
             // response.sendRedirect("listUsers.jsp"); //<-- Tirar o comentário quando o list for feito
         }
 %>

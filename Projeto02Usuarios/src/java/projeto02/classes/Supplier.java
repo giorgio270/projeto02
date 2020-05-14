@@ -9,18 +9,19 @@ package projeto02.classes;
  *
  * @author josue
  */
-public class Suppliers {
+public class Supplier {
     
     private String name, commercialName, cnpj, email, phone, address;
     
-    public void setAttributes (String name, String commercialName, String cnpj, String phone, String address, String email){
+    public void setAttributes (String name, String commercialName, String cnpj, String email, String phone, String address){
         
         this.setName(name);
         this.setCommercialName(commercialName);
         this.setCnpj(cnpj);
+        this.setEmail(email);
         this.setPhone(phone);
         this.setAddress(address);
-        this.setEmail(email);
+        
         
     }
 
