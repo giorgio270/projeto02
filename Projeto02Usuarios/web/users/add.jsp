@@ -19,7 +19,7 @@
         phone = request.getParameter("phone");
         adress = request.getParameter("adress");
       
-        if(name.isEmpty())
+        if(name.isEmpty()) 
             erro = "Nome não pode ser deixado em branco";
         else if(cpf.isEmpty())
             erro = "CPF não pode ser deixado em branco";
@@ -37,7 +37,7 @@
             user.setAttributes(name, cpf, rg, email, phone, adress);
             DbUser.getUsers().add(user);
             response.sendRedirect("list.jsp");
-
+        }
     }
 %>
 <html>
