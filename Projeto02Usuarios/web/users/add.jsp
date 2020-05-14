@@ -33,7 +33,7 @@
             erro = "Endereço não pode ser deixado em branco";
         else{
             erro = null;
-            Users user = new Users();
+            User user = new User();
             user.setAttributes(name, cpf, rg, phone, email, adress);
             DbUser.getUsers().add(user);
             response.sendRedirect("list.jsp");
